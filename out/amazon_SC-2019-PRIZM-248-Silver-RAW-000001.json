@@ -1,0 +1,80 @@
+{
+  "productType": "trading_card_draft",
+  "attributes": {
+    "item_name": [
+      {
+        "value": "2019 Panini Prizm Zion Williamson #248 Silver"
+      }
+    ],
+    "brand": [
+      {
+        "value": "Panini Prizm"
+      }
+    ],
+    "manufacturer": [
+      {
+        "value": "Panini Prizm"
+      }
+    ],
+    "item_sku": [
+      {
+        "value": "SC-2019-PRIZM-248-Silver-RAW-000001"
+      }
+    ],
+    "card_player": [
+      {
+        "value": "Zion Williamson"
+      }
+    ],
+    "card_set": [
+      {
+        "value": "Panini Prizm"
+      }
+    ],
+    "card_number": [
+      {
+        "value": "248"
+      }
+    ],
+    "card_parallel": [
+      {
+        "value": "Silver"
+      }
+    ],
+    "card_year": [
+      {
+        "value": "2019"
+      }
+    ],
+    "card_serial_number": [
+      {
+        "value": ""
+      }
+    ],
+    "card_sport": [
+      {
+        "value": "Basketball"
+      }
+    ],
+    "graded": [
+      {
+        "value": "No"
+      }
+    ],
+    "grader": [
+      {
+        "value": ""
+      }
+    ],
+    "grade": [
+      {
+        "value": ""
+      }
+    ],
+    "grade_cert": [
+      {
+        "value": ""
+      }
+    ]
+  }
+}

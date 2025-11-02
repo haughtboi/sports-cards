@@ -4,6 +4,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from .db import pool
+from fastapi import HTTPException
+
 
 app = FastAPI(title="Sports Cards Inventory")
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
@@ -82,6 +84,19 @@ def insert_item(i: ItemIn):
         conn.commit()
 
 
+def delete_item_by_sku(sku: str) -> int:
+    with pool.connection() as conn, conn.cursor() as cur:
+        # get id to allow FK cascades to work where defined
+        cur.execute("select id from items where sku=%s", (sku,))
+        row = cur.fetchone()
+        if not row:
+            return 0
+        item_id = row[0]
+        cur.execute("delete from items where id=%s", (item_id,))
+        conn.commit()
+        return cur.rowcount
+
+
 @app.get("/", response_class=HTMLResponse)
 def index(request: Request):
     return templates.TemplateResponse(
@@ -118,4 +133,14 @@ def create_item(
 ):
     i = ItemIn(**locals())
     insert_item(i)
+    return RedirectResponse("/", status_code=303)
+
+
+@app.post("/delete")
+def delete_item(sku: str = Form(...)):
+    deleted = delete_item_by_sku(sku)
+    if deleted == 0:
+        raise HTTPException(
+            status_code=404, detail="Item not found or could not delete."
+        )
     return RedirectResponse("/", status_code=303)

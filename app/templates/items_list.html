@@ -19,3 +19,13 @@
 </table>
 <p><a href="/new">Add item</a></p>
 {% endblock %}
+
+<th>Actions</th>
+  <tbody>
+<td>
+  <form method="post" action="/delete" onsubmit="return confirm('Delete {{ i.sku }}?');">
+    <input type="hidden" name="sku" value="{{ i.sku }}">
+    <button type="submit">Delete</button>
+  </form>
+</td>
+</tbody>

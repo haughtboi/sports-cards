@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Items</h3>
+<table role="grid">
+  <thead><tr><th>SKU</th><th>Title</th><th>Player</th><th>Set</th><th>Year</th><th>Parallel</th><th>Bin</th></tr></thead>
+  <tbody>
+  {% for i in items %}
+    <tr>
+      <td class="sku">{{ i.sku }}</td>
+      <td>{{ i.title }}</td>
+      <td>{{ i.player or '' }}</td>
+      <td>{{ i.set_name or '' }}</td>
+      <td>{{ i.year or '' }}</td>
+      <td>{{ i.parallel or '' }}</td>
+      <td>{{ i.location_bin }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<p><a href="/new">Add item</a></p>
+{% endblock %}

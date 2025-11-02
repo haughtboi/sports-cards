@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Add or Update Item</h3>
+<form method="post" action="/create">
+  <div class="grid">
+    <label>SKU<input name="sku" required placeholder="SC-YYYY-SET-###-Variant-RAW-000001"></label>
+    <label>Title<input name="title" required placeholder="2019 Panini Prizm Zion Williamson #248 Silver"></label>
+  </div>
+  <div class="grid">
+    <label>Sport<input name="sport"></label>
+    <label>Year<input type="number" name="year"></label>
+    <label>Set<input name="set_name"></label>
+  </div>
+  <div class="grid">
+    <label>Subset<input name="subset"></label>
+    <label>Card #<input name="card_number"></label>
+    <label>Player<input name="player"></label>
+  </div>
+  <div class="grid">
+    <label>Parallel<input name="parallel"></label>
+    <label>Serial Number<input name="serial_number" placeholder="23/99"></label>
+    <label>Condition<input name="condition" placeholder="RAW"></label>
+  </div>
+  <div class="grid">
+    <label>Grade Co.<input name="grade_company" placeholder="PSA"></label>
+    <label>Grade<input name="grade_value" placeholder="10"></label>
+    <label>Cert #<input name="grade_cert"></label>
+  </div>
+  <div class="grid">
+    <label>Cost ($)<input type="number" step="0.01" name="acquisition_cost" value="0"></label>
+    <label>Acquired At<input type="datetime-local" name="acquired_at"></label>
+    <label>Supplier<input name="supplier"></label>
+  </div>
+  <label>Location Bin<input name="location_bin" required></label>
+  <label>Notes<textarea name="notes"></textarea></label>
+  <button type="submit">Save</button>
+</form>
+{% endblock %}
